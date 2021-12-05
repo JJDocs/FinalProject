@@ -4,7 +4,14 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/jaden/AndroidStudioProjects/FinalProject/app/src/main/res/layout/activity_main.xml" value="0.17806484295845998" />
-        <entry key="..\:/Users/jaden/AndroidStudioProjects/FinalProject/app/src/main/res/menu/bottom_nav_menu.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/jaden/AndroidStudioProjects/FinalProject/app/src/main/res/layout/fragment_favourites_activity.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/jaden/AndroidStudioProjects/FinalProject/app/src/main/res/layout/fragment_home__activity.xml" value="0.264" />
+        <entry key="..\:/Users/jaden/AndroidStudioProjects/FinalProject/app/src/main/res/layout/fragment_market.xml" value="0.23854166666666668" />
+        <entry key="..\:/Users/jaden/AndroidStudioProjects/FinalProject/app/src/main/res/layout/fragment_market_list.xml" value="0.23854166666666668" />
+        <entry key="..\:/Users/jaden/AndroidStudioProjects/FinalProject/app/src/main/res/layout/fragment_sign_in__activity.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/jaden/AndroidStudioProjects/FinalProject/app/src/main/res/layout/fragment_user__activity.xml" value="0.1" />
+        <entry key="..\:/Users/jaden/AndroidStudioProjects/FinalProject/app/src/main/res/layout/market_list.xml" value="0.1" />
+        <entry key="..\:/Users/jaden/AndroidStudioProjects/FinalProject/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
       </map>
     </option>
   </component>

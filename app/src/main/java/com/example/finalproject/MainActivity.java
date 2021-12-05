@@ -1,63 +1,50 @@
 package com.example.finalproject;
 
-import androidx.appcompat.app.AppCompatActivity;
+import static com.example.finalproject.R.id.Favorites;
+import static com.example.finalproject.R.id.Markets;
+import static com.example.finalproject.R.id.News;
+import static com.example.finalproject.R.id.User;
+import static com.example.finalproject.R.id.bottomNavigation;
+import static com.example.finalproject.R.id.fragmentContainer;
 
-import android.content.Intent;
 import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
+@SuppressWarnings("deprecation")
 public class MainActivity extends AppCompatActivity {
+
+    BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?CMC_PRO_API_KEY=453d6b03-37ef-4e78-8f95-0ce2d831e5c1";
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                (Request.Method.GET, url, null, response -> {
+            getSupportFragmentManager().beginTransaction().replace(fragmentContainer,new Sign_in_Activity()).commit();
 
-                    JSONObject USD;
-                    JSONObject quote;
-                    JSONObject name;
-                    JSONArray data;
+            bottomNavigationView = findViewById(bottomNavigation);
+            bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+                Fragment fragment = new Home_Activity();
 
+                int itemId = item.getItemId();
 
-                    try {
-                        data = response.getJSONArray("data");
-
-                       for (int i = 0; i < data.length() ; i++) {
-                       //     JSONObject bi = data.getJSONObject(i);
-                            String Cry_name =  data.getJSONObject(i).getString("name");
-                            String symbol =  data.getJSONObject(i).getString("symbol");
-                           quote = data.getJSONObject(i).getJSONObject("quote");
-                            JSONObject quote_to_USD = quote.getJSONObject("USD");
-                            String coin_to_USD = quote_to_USD.getString("price");
-
-
-                            System.out.println("\n"+Cry_name);
-                            System.out.println(symbol);
-                            System.out.println(coin_to_USD);
-                       }
-                        } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-
-
-
-                }, error -> {
-                });
-        queue.add(jsonObjectRequest);
-    }
+                if (itemId == Markets ) {
+                    fragment = new Home_Activity();
+                } else if (itemId == Favorites) {
+                    fragment = new Favourites_activity();
+                } else if (itemId == News) {
+                    fragment = new News_Activity();
+                }
+                else if (itemId == User){
+                    fragment = new User_Activity();
+                }
+                getSupportFragmentManager().beginTransaction().replace(fragmentContainer,fragment).commit();
+                return true;
+            });
+        }
 
 }
 
