@@ -6,4 +6,17 @@
     <string name="Markets">markets</string>
     <string name="News">news</string>
     <string name="User">user</string>
+    <string name="sym">sym</string>
+    <string name="exchange">Exchange</string>
+    <string name="crypto">Crypto</string>
+    <string name="fav" />
+    <string name="fav_button">fav_button</string>
+    <string name="favourite_button">fav button</string>
+    <string name="starred">STARRED</string>
+    <string name="star">STAR</string>
+    <string name="togglebutton">ToggleButton</string>
+    <string name="login">LOGIN</string>
+    <string name="login_with_google">Login with Google</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="sign_up_with_google">Sign Up with Google</string>
 </resources>

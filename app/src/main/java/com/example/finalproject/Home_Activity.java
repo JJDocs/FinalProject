@@ -52,10 +52,10 @@ public class Home_Activity extends Fragment {
                     try {
                         data = response.getJSONArray("data");
 
-                        for (int i = 0; i < data.length(); i++) {
+                        for (int i = 0; i < 10; i++) {
                             //     JSONObject bi = data.getJSONObject(i);
                             String Cry_name = data.getJSONObject(i).getString("name");
-                            String symbol = data.getJSONObject(i).getString("symbol");
+                            String symbol ="-" + data.getJSONObject(i).getString("symbol");
                             quote = data.getJSONObject(i).getJSONObject("quote");
                             JSONObject quote_to_USD = quote.getJSONObject("USD");
                             String coin_to_USD = quote_to_USD.getString("price");
@@ -68,13 +68,14 @@ public class Home_Activity extends Fragment {
                             HashMap<String, String> market = new HashMap<>();
 
                             market.put("name", Cry_name);
+                            market.put("symbol",symbol);
                             market.put("price", coin_to_USD);
 
                             marketList.add(market);
 
                         }
-                        String[] from = {"name", "price"};
-                        int[] to = {R.id.name, R.id.price};
+                        String[] from = {"name", "price", "symbol"};
+                        int[] to = {R.id.name, R.id.price, R.id.symbol};
                         SimpleAdapter adapter = new SimpleAdapter(getActivity().getBaseContext(), marketList, R.layout.market_list, from, to);
                         lv.setAdapter(adapter);
 
