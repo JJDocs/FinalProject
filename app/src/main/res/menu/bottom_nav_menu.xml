@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/Favorites"
+        android:title="@string/Favorites"
+        android:icon="@drawable/ic_launcher_favourites_foreground"/>
+    <item
+        android:id="@+id/Markets"
+        android:title="@string/Markets"
+        android:icon="@drawable/ic_launcher_markets_foreground"/>
+
+    <item
+        android:id="@+id/News"
+        android:title="@string/News"
+        android:icon="@drawable/ic_launcher_news_foreground"/>
+
+    <item
+        android:id="@+id/User"
+        android:title="@string/User"
+        android:icon="@drawable/ic_launcher_user_foreground"/>
+
+</menu>

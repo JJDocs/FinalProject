@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">FinalProject</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Favorites">fav</string>
+    <string name="Markets">markets</string>
+    <string name="News">news</string>
+    <string name="User">user</string>
+</resources>
