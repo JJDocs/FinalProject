@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/list_news_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/news_name"
+        android:layout_width="155dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/crypto"
+        android:textColor="#00838F"
+        app:layout_constraintBottom_toTopOf="@+id/market_cap_dominance"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/market_cap_dominance"
+        android:layout_width="155dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="16dp"
+        android:textColor="#B388FF"
+        app:layout_constraintBottom_toTopOf="@+id/volume_change_24h"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/news_name" />
+
+    <TextView
+        android:id="@+id/volume_change_24h"
+        android:layout_width="155dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="16dp"
+        android:textColor="#B388FF"
+        app:layout_constraintBottom_toTopOf="@+id/percent_change_1h"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/market_cap_dominance" />
+
+    <TextView
+        android:id="@+id/percent_change_1h"
+        android:layout_width="155dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="16dp"
+        android:textColor="#B388FF"
+        app:layout_constraintBottom_toTopOf="@+id/percent_change_24h"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/volume_change_24h" />
+
+    <TextView
+        android:id="@+id/percent_change_24h"
+        android:layout_width="155dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="16dp"
+        android:textColor="#B388FF"
+        app:layout_constraintBottom_toTopOf="@+id/percent_change_7d"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/percent_change_1h" />
+
+    <TextView
+        android:id="@+id/percent_change_7d"
+        android:layout_width="155dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="16dp"
+        android:textColor="#B388FF"
+        app:layout_constraintBottom_toTopOf="@+id/percent_change_30d"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/percent_change_24h" />
+
+    <TextView
+        android:id="@+id/percent_change_30d"
+        android:layout_width="155dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:textColor="#B388FF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/percent_change_7d" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
