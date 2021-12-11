@@ -46,7 +46,7 @@ public class Home_Activity extends Fragment {
                     try {
                         data = response.getJSONArray("data");
 
-                        for (int i = 0; i < 10; i++) {
+                        for (int i = 0; i < data.length(); i++) {
                             String Cry_name = data.getJSONObject(i).getString("name");
                             String symbol ="-" + data.getJSONObject(i).getString("symbol");
 

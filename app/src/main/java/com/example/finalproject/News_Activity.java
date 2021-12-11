@@ -46,7 +46,7 @@ public class News_Activity extends Fragment {
                     try {
                         data = response.getJSONArray("data");
 
-                        for (int i = 0; i < 10; i++) {
+                        for (int i = 0; i < data.length(); i++) {
                             String news_name = data.getJSONObject(i).getString("name");
                             quote = data.getJSONObject(i).getJSONObject("quote");
                             JSONObject quote_to_USD = quote.getJSONObject("USD");
