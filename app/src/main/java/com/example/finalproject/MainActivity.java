@@ -8,8 +8,11 @@ import static com.example.finalproject.R.id.bottomNavigation;
 import static com.example.finalproject.R.id.fragmentContainer;
 
 import android.os.Bundle;
+import android.view.View;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -17,7 +20,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class MainActivity extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
-
+    private NavController navController;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
             bottomNavigationView = findViewById(bottomNavigation);
             bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+
                 Fragment fragment = new Home_Activity();
 
                 int itemId = item.getItemId();
@@ -47,4 +51,3 @@ public class MainActivity extends AppCompatActivity {
         }
 
 }
-

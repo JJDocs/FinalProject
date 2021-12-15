@@ -1,5 +1,6 @@
 package com.example.finalproject;
 
+import static com.example.finalproject.R.id.bottomNavigation;
 import static com.example.finalproject.R.id.fragmentContainer;
 
 import android.content.Intent;
@@ -19,6 +20,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -31,11 +33,13 @@ public class LogInActivity extends Fragment {
     TextInputEditText etLoginPassword;
     TextView tvRegisterHere;
     Button btnLogin;
-
+BottomNavigationView bottomNavigationView;
     FirebaseAuth mAuth;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootview = inflater.inflate(R.layout.fragment_log_in__activity, container, false);
+            BottomNavigationView bottomNavigationView = getActivity().findViewById(bottomNavigation);
+            bottomNavigationView.setVisibility(View.GONE);
 
         etLoginEmail = rootview.findViewById(R.id.etLoginEmail);
         etLoginPassword = rootview.findViewById(R.id.etLoginPass);
@@ -79,6 +83,8 @@ public class LogInActivity extends Fragment {
                                 .replace(fragmentContainer, fragment, "findThisFragment")
                                 .addToBackStack(null)
                                 .commit();
+                        BottomNavigationView bottomNavigationView = getActivity().findViewById(bottomNavigation);
+                        bottomNavigationView.setVisibility(View.VISIBLE);
                     }else{
                         Toast.makeText(getContext(), "Log in Error: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
