@@ -22,8 +22,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-            getSupportFragmentManager().beginTransaction().replace(fragmentContainer,new Home_Activity()).commit();
+        getSupportFragmentManager().beginTransaction().replace(fragmentContainer,new LogInActivity()).commit();
 
             bottomNavigationView = findViewById(bottomNavigation);
             bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
@@ -39,11 +38,12 @@ public class MainActivity extends AppCompatActivity {
                     fragment = new News_Activity();
                 }
                 else if (itemId == User){
-                    fragment = new User_Activity();
+                    fragment = new UserActivity();
                 }
                 getSupportFragmentManager().beginTransaction().replace(fragmentContainer,fragment).commit();
                 return true;
             });
+
         }
 
 }

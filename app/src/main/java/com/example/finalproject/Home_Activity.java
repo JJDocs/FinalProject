@@ -1,10 +1,19 @@
 package com.example.finalproject;
 
+import static com.example.finalproject.R.id.Favorites;
+import static com.example.finalproject.R.id.Markets;
+import static com.example.finalproject.R.id.News;
+import static com.example.finalproject.R.id.User;
+import static com.example.finalproject.R.id.bottomNavigation;
+import static com.example.finalproject.R.id.fragmentContainer;
+
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.SimpleAdapter;
 
 import androidx.fragment.app.Fragment;
@@ -13,6 +22,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -22,20 +32,24 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class Home_Activity extends Fragment {
+@SuppressWarnings("ALL")
+public class Home_Activity extends Fragment implements SearchView.OnQueryTextListener {
 
     public Home_Activity() {
         // Required empty public constructor
     }
-
     ListView lv;
-    List<HashMap<String, String>> marketList = new ArrayList<>();
+    String [] from;
+    int [] to;
+    SimpleAdapter adapter;
+    private String currentSearchText = "";
+    List<HashMap<String,String>> marketList = new ArrayList<>();
+    SearchView editSearch;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_home__activity, container, false);
         lv = rootView.findViewById(R.id.list_news_layout);
-
         RequestQueue queue = Volley.newRequestQueue(requireActivity());
         String url = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?CMC_PRO_API_KEY=453d6b03-37ef-4e78-8f95-0ce2d831e5c1";
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
@@ -61,10 +75,11 @@ public class Home_Activity extends Fragment {
                             marketList.add(market);
 
                         }
-                        String[] from = {"name", "price", "symbol"};
-                        int[] to = {R.id.name, R.id.price, R.id.symbol};
-                        SimpleAdapter adapter = new SimpleAdapter(getActivity().getBaseContext(), marketList, R.layout.market_list, from, to);
+                        from = new String[]{"name", "price", "symbol"};
+                        to = new int[] {R.id.name, R.id.price, R.id.symbol};
+                         adapter = new SimpleAdapter(getActivity().getBaseContext(), marketList, R.layout.market_list, from, to);
                         lv.setAdapter(adapter);
+
 
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -74,6 +89,21 @@ public class Home_Activity extends Fragment {
                 });
         queue.add(jsonObjectRequest);
 
+        editSearch = rootView.findViewById(R.id.search);
+        editSearch.setOnQueryTextListener(this);
+
         return rootView;
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String s) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String s) {
+    currentSearchText = s;
+        List<HashMap<String,String>> marketArrayList = new ArrayList<>();
+return false;
     }
 }

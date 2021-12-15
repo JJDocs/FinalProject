@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">FinalProject</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -19,4 +19,17 @@
     <string name="login_with_google">Login with Google</string>
     <string name="sign_up">Sign Up</string>
     <string name="sign_up_with_google">Sign Up with Google</string>
+    <string name="search">Search</string>
+    <string name="string_search" />
+    <string name="register">Register</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+        <string name="already_registered">Already registered</string>
+    <string name="login_here">Login here</string>
+    <string name="emailuser">Email</string>
+    <string name="passworduser">Password</string>
+    <string name="loginuser">Login</string>
+    <string name="not_registered_as_yet">Not registered yet</string>
+    <string name="please_register_here">Register here</string>
+    <string name="logout">Logout</string>
 </resources>
