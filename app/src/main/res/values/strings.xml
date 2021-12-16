@@ -41,4 +41,5 @@
     <string name="percent_change_last_24hr">Percent Change Last 24hr:</string>
     <string name="percent_change_last_30days">Percent Change Last 30days:</string>
     <string name="usd">USD: $</string>
+    <string name="switch_google_account">Switch Google Account</string>
 </resources>

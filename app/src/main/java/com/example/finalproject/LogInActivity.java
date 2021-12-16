@@ -47,6 +47,7 @@ public class LogInActivity extends Fragment {
     TextInputEditText etLoginEmail;
     TextInputEditText etLoginPassword;
     TextView tvRegisterHere;
+    TextView tvSwitchAccount;
     Button btnLogin;
    private SignInButton googleSignIn;
     BottomNavigationView bottomNavigationView;
@@ -61,6 +62,7 @@ public class LogInActivity extends Fragment {
         etLoginEmail = rootview.findViewById(R.id.etLoginEmail);
         etLoginPassword = rootview.findViewById(R.id.etLoginPass);
         tvRegisterHere = rootview.findViewById(R.id.tvRegisterHere);
+        tvSwitchAccount = rootview.findViewById(R.id.switchAccount);
         btnLogin = rootview.findViewById(R.id.btnLogin);
         googleSignIn = rootview.findViewById(R.id.googleButton);
 
@@ -82,6 +84,13 @@ public class LogInActivity extends Fragment {
                     loginUser();
                 });
 
+        tvSwitchAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switchGoogleAccount();
+            }
+        });
+
         tvRegisterHere.setOnClickListener(view -> {
             Fragment fragment = new RegisterActivity();
             getActivity().getSupportFragmentManager().beginTransaction()
@@ -89,6 +98,7 @@ public class LogInActivity extends Fragment {
                     .addToBackStack(null)
                     .commit();
         });
+
         return rootview;
     }
 
@@ -104,13 +114,17 @@ public class LogInActivity extends Fragment {
 
 
     private void signIn() {
-        mGoogleSignInClient.signOut();
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
 
     }
     // [END signin]
+    private void switchGoogleAccount() {
+        mGoogleSignInClient.signOut();
+        Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+        startActivityForResult(signInIntent, RC_SIGN_IN);
 
+    }
     private void updateUI(FirebaseUser user) {
 
     }
