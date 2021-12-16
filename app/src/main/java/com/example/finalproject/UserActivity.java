@@ -2,16 +2,15 @@ package com.example.finalproject;
 
 import static com.example.finalproject.R.id.fragmentContainer;
 
-import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import androidx.fragment.app.Fragment;
+
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -21,7 +20,6 @@ public class UserActivity extends Fragment {
     public UserActivity() {
         // Required empty public constructor
     }
-
 
     Button btnLogOut;
     FirebaseAuth mAuth;
@@ -35,6 +33,7 @@ public class UserActivity extends Fragment {
 
         btnLogOut.setOnClickListener(view ->{
             mAuth.signOut();
+            signOut();
             Fragment fragment = new LogInActivity();
             getActivity().getSupportFragmentManager().beginTransaction()
                     .replace(fragmentContainer, fragment, "findThisFragment")
@@ -56,4 +55,11 @@ public class UserActivity extends Fragment {
                     .commit();
         }
     }
+
+    public void signOut() {
+        // [START auth_sign_out]
+        FirebaseAuth.getInstance().signOut();
+        // [END auth_sign_out]
+    }
+
 }

@@ -32,4 +32,5 @@
     <string name="not_registered_as_yet">Not registered yet</string>
     <string name="please_register_here">Register here</string>
     <string name="logout">Logout</string>
+    <string name="googlbutton">x</string>
 </resources>
