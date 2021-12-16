@@ -34,4 +34,11 @@
     <string name="googlbutton">x</string>
     <string name="search">Search</string>
     <string name="search_news">Search News</string>
+    <string name="market_cap_dominance">Market Cap Dominance:</string>
+    <string name="volume_change_in_24h">Volume Change in 24h:</string>
+    <string name="percent_change_last_7days">Percent Change Last 7days:</string>
+    <string name="percent_change_last_1h">Percent Change Last 1h:</string>
+    <string name="percent_change_last_24hr">Percent Change Last 24hr:</string>
+    <string name="percent_change_last_30days">Percent Change Last 30days:</string>
+    <string name="usd">USD: $</string>
 </resources>
