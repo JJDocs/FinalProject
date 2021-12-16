@@ -4,9 +4,12 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
@@ -28,13 +31,16 @@ public class News_Activity extends Fragment {
     public News_Activity() {
         // Required empty public constructor
     }
+    private SimpleAdapter adapter;
     ListView listv;
+    EditText editNewsSearch;
     List<HashMap<String, String>> newsList = new ArrayList<>();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_news__activity, container, false);
         listv = rootView.findViewById(R.id.list_news_layout);
+        editNewsSearch = rootView.findViewById(R.id.searchNews);
 
         RequestQueue queue = Volley.newRequestQueue(requireActivity());
         String url = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?CMC_PRO_API_KEY=453d6b03-37ef-4e78-8f95-0ce2d831e5c1";
@@ -82,7 +88,7 @@ public class News_Activity extends Fragment {
                                     R.id.percent_change_24h,R.id.percent_change_7d,
                                     R.id.percent_change_30d};
 
-                        SimpleAdapter adapter = new SimpleAdapter(getActivity().getBaseContext(), newsList, R.layout.news_list, from, to);
+                        adapter = new SimpleAdapter(getActivity().getBaseContext(), newsList, R.layout.news_list, from, to);
                         listv.setAdapter(adapter);
 
                     } catch (JSONException e) {
@@ -94,6 +100,14 @@ public class News_Activity extends Fragment {
                 });
         queue.add(jsonObjectRequest);
 
+        editNewsSearch.addTextChangedListener(new TextWatcher() {
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) { }
+
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                News_Activity.this.adapter.getFilter().filter(charSequence);
+            }
+            public void afterTextChanged(Editable editable) { }
+        });
         return rootView;
     }
 }

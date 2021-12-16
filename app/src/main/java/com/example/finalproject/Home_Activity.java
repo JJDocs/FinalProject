@@ -31,12 +31,9 @@ public class Home_Activity extends Fragment {
     public Home_Activity() {
         // Required empty public constructor
     }
+    private SimpleAdapter adapter;
     ListView lv;
-    String [] from;
-    int [] to;
     EditText editSearch;
-   private SimpleAdapter adapter;
-
     List<HashMap<String,String>> marketList = new ArrayList<>();
 
     @Override
@@ -44,7 +41,7 @@ public class Home_Activity extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_home__activity, container, false);
         lv = rootView.findViewById(R.id.list_news_layout);
-        editSearch = rootView.findViewById(R.id.search);
+        editSearch = rootView.findViewById(R.id.searchCrypto);
 
         RequestQueue queue = Volley.newRequestQueue(requireActivity());
         String url = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?CMC_PRO_API_KEY=453d6b03-37ef-4e78-8f95-0ce2d831e5c1";
@@ -69,42 +66,27 @@ public class Home_Activity extends Fragment {
                             market.put("symbol",symbol);
                             market.put("price", coin_to_USD);
                             marketList.add(market);
-                            from = new String[]{"name", "price", "symbol"};
-                            to = new int[] {R.id.name, R.id.price, R.id.symbol};
+                            String[] from = new String[]{"name", "price", "symbol"};
+                            int[] to = new int[] {R.id.name, R.id.price, R.id.symbol};
                             adapter = new SimpleAdapter(getActivity().getBaseContext(), marketList, R.layout.market_list, from, to);
                             lv.setAdapter(adapter);
-
-
                         }
-
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-
-
-
-
                 }, error -> {
                 });
 
         queue.add(jsonObjectRequest);
+
         editSearch.addTextChangedListener(new TextWatcher() {
-
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) { }
 
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 Home_Activity.this.adapter.getFilter().filter(charSequence);
             }
-
-
-            public void afterTextChanged(Editable editable) {
-
-            }
+            public void afterTextChanged(Editable editable) { }
         });
         return rootView;
     }
-
 }
