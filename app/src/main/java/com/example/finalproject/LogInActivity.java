@@ -3,7 +3,6 @@ package com.example.finalproject;
 import static com.example.finalproject.R.id.bottomNavigation;
 import static com.example.finalproject.R.id.fragmentContainer;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -18,7 +17,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -80,9 +78,7 @@ public class LogInActivity extends Fragment {
                                             }
                                         });
 
-                btnLogin.setOnClickListener(view -> {
-                    loginUser();
-                });
+        btnLogin.setOnClickListener(view -> { loginUser(); });
 
         tvSwitchAccount.setOnClickListener(new View.OnClickListener() {
             @Override

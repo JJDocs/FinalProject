@@ -56,8 +56,6 @@ public class RegisterActivity extends Fragment {
           createUser();
         });
 
-
-
    return rootview;
     }
 

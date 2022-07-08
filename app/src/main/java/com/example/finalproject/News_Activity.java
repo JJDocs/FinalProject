@@ -64,9 +64,7 @@ public class News_Activity extends Fragment {
                             String Per_change_7d = (quote_to_USD.getString("percent_change_7d"));
                             String Per_change_30d = (quote_to_USD.getString("percent_change_30d"));
 
-
                             HashMap<String, String> news_data = new HashMap<>();
-
                             news_data.put("name", news_name);
                             news_data.put("market_cap_dominance", Market_dom);
                             news_data.put("volume_change_24h",Vol_change);
@@ -74,10 +72,9 @@ public class News_Activity extends Fragment {
                             news_data.put("percent_change_24h", Per_change_24hr);
                             news_data.put("percent_change_7d", Per_change_7d);
                             news_data.put("percent_change_30d", Per_change_30d);
-
                             newsList.add(news_data);
-
                         }
+
                         String[] from = {"name",              "market_cap_dominance",
                                          "volume_change_24h", "percent_change_1h",
                                          "percent_change_24h","percent_change_7d",
@@ -94,8 +91,6 @@ public class News_Activity extends Fragment {
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-
-
                 }, error -> {
                 });
         queue.add(jsonObjectRequest);
